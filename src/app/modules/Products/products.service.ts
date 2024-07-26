@@ -7,6 +7,12 @@ const createPorductintoDb = async (payload: Tproducts) => {
     return result;
 };
 
-export const productmService = {
-    createPorductintoDb
+const getLastSixProductsFromDb = async () => {
+    const result = await Product.find().sort({ createdAt: -1 }).limit(6);
+    return result;
+};
+
+export const productService = {
+    createPorductintoDb,
+    getLastSixProductsFromDb
 }

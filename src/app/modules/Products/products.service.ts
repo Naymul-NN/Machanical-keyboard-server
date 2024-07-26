@@ -12,7 +12,13 @@ const getLastSixProductsFromDb = async () => {
     return result;
 };
 
+const getSingleProductFromDb = async (id:string) => {
+    const result = await Product.findById(id);
+    return result;
+};
+
 export const productService = {
     createPorductintoDb,
-    getLastSixProductsFromDb
+    getLastSixProductsFromDb,
+    getSingleProductFromDb
 }

@@ -9,7 +9,7 @@ const createPorduct = catchAsync(async (req, res) => {
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
-        message: 'room added successfully',
+        message: ' Product added successfully',
         data: result
     })
   });
@@ -25,8 +25,22 @@ const createPorduct = catchAsync(async (req, res) => {
     });
 });
 
+// get the single product
+
+const getSingleProduct = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await productService.getSingleProductFromDb(id)
+  sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Product retrieved successfully',
+      data: result
+  })
+});
+
 
   export const productController = {
     createPorduct,
-    getLastSixProducts
+    getLastSixProducts,
+    getSingleProduct
   }

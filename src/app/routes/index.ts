@@ -1,12 +1,17 @@
-// import { Router } from 'express';
-// // import { StudentRoutes } from '../modules/student/student.route';
-// // import { UserRoutes } from '../modules/user/user.route';
+import { Router } from 'express';
 
-// const router = Router();
+import { PorductsRoutes } from '../modules/Products/products.route';
 
-// const moduleRoutes = [
-// ];
+const router = Router();
 
-// moduleRoutes.forEach((route) => router.use(route.path, route.route));
+const moduleRoutes = [
+ {
+  path: '/product',
+  route: PorductsRoutes,
+ }
 
-// export default router;
+];
+
+moduleRoutes.forEach((route) => router.use(route.path, route.route));
+
+export default router;

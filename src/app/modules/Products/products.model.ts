@@ -14,6 +14,10 @@ const ProductSchema = new Schema<Tproducts>({
         type: String,
         required: true,
     },
+    description: {
+        type: String,
+        required: true,
+    },
     availableQuantity: {
         type: Number,
         required: true,

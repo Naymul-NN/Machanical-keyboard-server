@@ -11,6 +11,10 @@ const getLastSixProductsFromDb = async () => {
     const result = await Product.find().sort({ createdAt: -1 }).limit(6);
     return result;
 };
+const getAllProductsFromDb = async () => {
+    const result = await Product.find();
+    return result;
+};
 
 const getSingleProductFromDb = async (id:string) => {
     const result = await Product.findById(id);
@@ -20,5 +24,6 @@ const getSingleProductFromDb = async (id:string) => {
 export const productService = {
     createPorductintoDb,
     getLastSixProductsFromDb,
-    getSingleProductFromDb
+    getSingleProductFromDb,
+    getAllProductsFromDb
 }

@@ -24,6 +24,16 @@ const createPorduct = catchAsync(async (req, res) => {
         data: result
     });
 });
+// get all
+  const getAllProducts = catchAsync(async (req, res) => {
+    const result = await productService.getAllProductsFromDb();
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'All products fetched successfully',
+        data: result
+    });
+});
 
 // get the single product
 
@@ -42,5 +52,6 @@ const getSingleProduct = catchAsync(async (req, res) => {
   export const productController = {
     createPorduct,
     getLastSixProducts,
-    getSingleProduct
+    getSingleProduct,
+    getAllProducts
   }

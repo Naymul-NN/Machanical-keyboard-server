@@ -6,7 +6,14 @@ const createPorductCartintoDb = async (payload: TproductCart) => {
     return result;
 };
 
+const getAllProductCartFromDb = async () => {
+    const result = await ProductCart.find().populate('product');
+    return result;
+};
+
 
 export  const  productCartService = {
     createPorductCartintoDb,
+    getAllProductCartFromDb,
+
 }

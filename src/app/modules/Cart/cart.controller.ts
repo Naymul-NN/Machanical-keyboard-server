@@ -14,6 +14,17 @@ const createPorductCart = catchAsync(async (req, res) => {
     })
   });
 
+  const getAllProductCart = catchAsync(async (req, res) => {
+    const result = await productCartService.getAllProductCartFromDb();
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'All products fetched successfully',
+        data: result
+    });
+});
+
   export const productCartController = {
     createPorductCart,
+    getAllProductCart
   }
